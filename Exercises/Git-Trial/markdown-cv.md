@@ -1,5 +1,7 @@
 # Rayan Eljawhari
 
+## <img src="Rayan.jpeg" alt="my pic" style="width:200px; "/>
+
 > _Address:_ Beirut , Lebanon \
 > _Email:_ rayanalijawhari@gmail.com \
 > _Phone:_ 76847576 \
