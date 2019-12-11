@@ -2,6 +2,7 @@
 
 > _Address:_ Beirut , Lebanon \
 > _Email:_ rayanalijawhari@gmail.com \
+> _Phone:_ 76847576 \
 > _Date of Birth:_ 18-11-1994
 
 ...
