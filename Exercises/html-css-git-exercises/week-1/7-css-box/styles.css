@@ -3,4 +3,17 @@
   border: 1px solid #4491db;
   border-radius: 4px;
   background: #fff;
+  padding: 5px;
+  margin: 5px;
+}
+
+.pages__showing {
+  padding: 0px;
+  margin: 0px;
+  margin-right: 5px;
+}
+
+.site-wrapper {
+  margin: 5px;
+  padding: 5px;
 }
