@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Step 4</title>
-</head>
-<body>
-  <form>
-    <label for="password">password : </label><input type="text" name="password" value="" id="password" />
-    <label for="confirmation">Confirm : </label><input type="text" name="confirmation" value="" id="confirmation" />
-    <button type="button" name="button" >Test</button>
-  </form>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Step 4</title>
+  </head>
+  <body>
+    <form>
+      <label for="password">password : </label
+      ><input type="text" name="password" value="" id="password" />
+      <label for="confirmation">Confirm : </label
+      ><input type="text" name="confirmation" value="" id="confirmation" />
+      <button type="button" name="button" onclick="change()">Test</button>
+    </form>
+    <script>
+      function change() {
+        if (
+          document.getElementById("password").value !=
+          document.getElementById("confirmation").value
+        ) {
+          document.getElementById("password").style.borderColor = "red";
+          document.getElementById("confirmation").style.borderColor = "red";
+        }
+      }
+    </script>
+  </body>
 </html>
