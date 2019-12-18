@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Step 5</title>
   </head>
   <body>
@@ -13,4 +13,34 @@
       <img src="images/image5.jpg" id="image5" />
     </div>
   </body>
+  <script>
+    function f() {
+      document
+        .querySelector("#image1")
+        .addEventListener("mouseover", function() {
+          this.src = "images/image1_2.jpg";
+        });
+      document
+        .querySelector("#image2")
+        .addEventListener("mouseover", function() {
+          this.src = "images/image2_2.jpg";
+        });
+      document
+        .querySelector("#image3")
+        .addEventListener("mouseover", function() {
+          this.src = "images/image3_2.jpg";
+        });
+      document
+        .querySelector("#image4")
+        .addEventListener("mouseover", function() {
+          this.src = "images/image4_2.jpg";
+        });
+      document
+        .querySelector("#image5")
+        .addEventListener("mouseover", function() {
+          this.src = "images/image5_2.jpg";
+        });
+    }
+    f();
+  </script>
 </html>
