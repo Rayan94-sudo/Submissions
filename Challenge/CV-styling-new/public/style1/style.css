@@ -1,0 +1,179 @@
+header > div {
+  background-color: #999999;
+  display: flex;
+  padding-left: 150px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+hgroup {
+  color: red;
+}
+
+.contacts {
+  position: absolute;
+  top: 23px;
+  right: 0px;
+  width: 100%;
+  max-width: 650px;
+  line-height: 25px !important;
+  overflow: hidden;
+}
+
+.contact {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.contact-type {
+  width: 22%;
+  float: left;
+  padding: 0;
+  margin: 0;
+  background-color: red;
+  color: #fff;
+}
+.contact-value {
+  text-align: left;
+  background-color: black;
+  width: 78%;
+  float: left;
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+.contact-value a {
+  color: red;
+  text-decoration: none;
+}
+
+#contact > h3 {
+  display: none;
+}
+#wrapper {
+  text-align: center;
+}
+.content {
+  display: flex;
+  text-align: left;
+  padding: 0 150px;
+  flex-wrap: wrap;
+}
+
+#about {
+  width: 50%;
+}
+#competencies {
+  width: 50%;
+}
+#experiences {
+  width: 50%;
+}
+#education {
+  width: 50%;
+}
+body {
+  background: white;
+}
+hgroup {
+  color: red;
+}
+#hobbies {
+  width: 50%;
+}
+.content section p {
+  padding-right: 15px;
+}
+.content section h3 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #999999;
+}
+.content section h3::before {
+  padding-right: 8px;
+  content: "•";
+  color: red;
+}
+.skill {
+  border-radius: 2px;
+  background-color: #cccccc;
+  margin-top: 7px;
+  padding: 10px 0;
+}
+.skill span {
+  background-color: red;
+  padding: 5px 0;
+  border-radius: 5px;
+  padding-right: 50%;
+  margin-left: 5px;
+  color: #fff;
+}
+.skills-secondary {
+  opacity: 0.7;
+}
+.experience-details {
+  color: #c6c6c6;
+}
+.experience-type {
+  font-weight: bold;
+}
+div > h4 {
+  color: red;
+}
+@media all and (max-width: 1226px) {
+  #contact {
+    display: none;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .content {
+    padding: 0 50px;
+  }
+}
+@media all and (max-width: 600px) {
+  #contact {
+    display: block;
+    position: relative;
+  }
+  .content {
+    flex-direction: column;
+  }
+
+  header > div {
+    flex-direction: column;
+    padding-left: 20px !important;
+  }
+  #contact {
+    display: block;
+  }
+  .content section {
+    width: 100% !important;
+    line-height: 1.3em;
+  }
+  .content {
+    padding: 0 50px !important;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .content {
+    padding: 0 15px !important;
+  }
+  .contact-value {
+    color: #000;
+  }
+  hgroup {
+    text-align: left;
+  }
+  hgroup > h1 {
+    font-size: 1.5em;
+  }
+  figure {
+    text-align: left;
+  }
+  .contact-value {
+    background-color: #fff;
+  }
+}
