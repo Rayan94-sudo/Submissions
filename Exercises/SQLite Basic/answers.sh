@@ -16,3 +16,7 @@ CREATE TABLE `graduates` (
 insert into Graduates(Name, Age, Gender, Points)  select Name, Age, Gender, Points from students where Name="Layal";
 update Graduates set graduation ="10/10/2010" where Name="Layal";
 delete from Graduates where name="Layal";
+
+select employees.Name,companies.Name,companies.Date from employees,companies;
+select employees.Name,companies.Date from employees,companies where companies.date<2000;
+select companies.Name,employees.Role  from companies,employees where employees.role="Graphic Designer";
