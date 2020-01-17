@@ -20,3 +20,9 @@ delete from Graduates where name="Layal";
 select employees.Name,companies.Name,companies.Date from employees,companies;
 select employees.Name,companies.Date from employees,companies where companies.date<2000;
 select companies.Name,employees.Role  from companies,employees where employees.role="Graphic Designer";
+
+select *,max(points) as max_p  from students 
+select avg(points) from students;
+select count(students.ID) from students where Points=500;
+select students.Name from students where students.Name like '%s%';
+select * from students order by points asc;
