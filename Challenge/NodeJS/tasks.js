@@ -131,12 +131,13 @@ function edit(x) {
     var t = t.replace("\n", "");
     li[index] = t;
   } else {
+    console.log("hjkads");
     var index = x.length;
     x.shift();
     var t = x.toString();
     var t = t.replace(/\,/g, " ");
     var t = t.replace("\n", "");
-    li[index - 1] = t;
+    li[index] = t;
   }
   console.log(" <<< list after edit >>>");
   list();
