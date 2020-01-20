@@ -42,29 +42,27 @@ var li = [
 
 function onDataReceived(text) {
   var x = text.split(" ");
-
   if (text === "quit\n" || text === "exit\n") {
     quit();
   } else if (text === "list\n") {
     list();
-  } else {
-    if (x[0] === "add") {
-      add(x);
-    } else {
-      if (text === "hello\n") {
-        hello();
-      } else {
-        if (x[0] == "hello") {
-          helloo(x);
-        } else {
-          if (text === "help\n") {
-            help();
-          } else unknownCommand(text);
-        }
-      }
-    }
-  }
+  } else if (text === "add\n") {
+    unknownCommand(text);
+  } else if (x[0] === "add") {
+    add(x);
+  } else if (text === "remove\n") {
+    remove_1();
+  } else if (x[0] === "remove") {
+    remove(x[1]);
+  } else if (text === "hello\n") {
+    hello();
+  } else if (x[0] == "hello") {
+    helloo(x);
+  } else if (text === "help\n") {
+    help();
+  } else unknownCommand(text);
 }
+
 /**
  * help function
  * print choises of user
@@ -109,6 +107,7 @@ function list() {
   for (var i = 0; i < li.length; i++) {
     console.log("[ ] " + li[i] + "\n");
   }
+  console.log("<><><><><><><><><><><><><><><><><><><><>");
 }
 
 function add(task_) {
@@ -117,9 +116,16 @@ function add(task_) {
   var t = t.replace(/\,/g, " ");
   var t = t.replace("\n", "");
   li.push(t);
-  console.log(
-    "~~~~~~~~~~~~~~~~~~~~~~~ \nthis task is added !! \n~~~~~~~~~~~~~~~~~~~~~~~"
-  );
+  console.log(">->-> this task is added !! \n");
+  list();
+}
+
+function remove_1() {
+  li.pop();
+  list();
+}
+function remove(x) {
+  li.splice(x - 1, 1);
   list();
 }
 /**
