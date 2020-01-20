@@ -54,6 +54,10 @@ function onDataReceived(text) {
     remove_1();
   } else if (x[0] === "remove") {
     remove(x[1]);
+  } else if (text === "edit\n") {
+    unknownCommand(text);
+  } else if (x[0] === "edit") {
+    edit(x);
   } else if (text === "hello\n") {
     hello();
   } else if (x[0] == "hello") {
@@ -117,12 +121,33 @@ function add(task_) {
   list();
 }
 
+function edit(x) {
+  if (x[1] <= li.length && x[1] > 0) {
+    var index = x[1] - 1;
+    x.shift();
+    x.shift();
+    var t = x.toString();
+    var t = t.replace(/\,/g, " ");
+    var t = t.replace("\n", "");
+    li[index] = t;
+  } else {
+    var index = x.length;
+    x.shift();
+    var t = x.toString();
+    var t = t.replace(/\,/g, " ");
+    var t = t.replace("\n", "");
+    li[index - 1] = t;
+  }
+  console.log(" <<< list after edit >>>");
+  list();
+}
+
 function remove_1() {
   li.pop();
   list();
 }
 function remove(x) {
-  if (x <= li.length && x >= 0) {
+  if (x <= li.length && x > 0) {
     li.splice(x - 1, 1);
     list();
   } else {
