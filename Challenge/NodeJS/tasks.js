@@ -122,8 +122,12 @@ function remove_1() {
   list();
 }
 function remove(x) {
-  li.splice(x - 1, 1);
-  list();
+  if (x <= li.length && x >= 0) {
+    li.splice(x - 1, 1);
+    list();
+  } else {
+    console.log("invalide parametrs");
+  }
 }
 /**
  * Exits the application
