@@ -7,7 +7,9 @@
  *
  * @param  {string} name the name of the app
  * @returns {void}
+ *
  */
+
 function startApp(name) {
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
@@ -31,20 +33,35 @@ function startApp(name) {
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
+var li = [
+  "to quit the app  type exit OR quit",
+  "to Says hello type hello",
+  "to Says hello xxx type hello xxx!"
+];
+
 function onDataReceived(text) {
   var x = text.split(" ");
-  console.log("..........");
+
   if (text === "quit\n" || text === "exit\n") {
     quit();
-  } else if (text === "hello\n") {
-    hello();
+  } else if (text === "list\n") {
+    list();
   } else {
-    if (x[0] == "hello") {
-      helloo(x[1]);
+    if (x[0] === "add") {
+      add(x);
     } else {
-      if (text === "help\n") {
-        help();
-      } else unknownCommand(text);
+      if (text === "hello\n") {
+        hello();
+      } else {
+        if (x[0] == "hello") {
+          helloo(x);
+        } else {
+          if (text === "help\n") {
+            help();
+          } else unknownCommand(text);
+        }
+      }
     }
   }
 }
@@ -86,6 +103,24 @@ function hello() {
 function helloo(y) {
   y = y.replace("\n", "");
   console.log(`hello ${y}!`);
+}
+
+function list() {
+  for (var i = 0; i < li.length; i++) {
+    console.log("[ ] " + li[i] + "\n");
+  }
+}
+
+function add(task_) {
+  task_.shift();
+  var t = task_.toString();
+  var t = t.replace(/\,/g, " ");
+  var t = t.replace("\n", "");
+  li.push(t);
+  console.log(
+    "~~~~~~~~~~~~~~~~~~~~~~~ \nthis task is added !! \n~~~~~~~~~~~~~~~~~~~~~~~"
+  );
+  list();
 }
 /**
  * Exits the application
