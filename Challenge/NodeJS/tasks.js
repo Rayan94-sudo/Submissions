@@ -68,10 +68,7 @@ function onDataReceived(text) {
  * print choises of user
  */
 function help() {
-  console.log("to quit the app  type exit OR quit");
-  console.log("to Says hello type hello");
-  console.log("to Says hello xxx type hello xxx!");
-  console.log("* * * * * * * * * * * * * * *");
+  list();
 }
 /**
  * prints "unknown command"
