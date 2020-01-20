@@ -33,19 +33,21 @@ function startApp(name) {
  */
 function onDataReceived(text) {
   var x = text.split(" ");
-  console.log(x[0]);
   console.log("..........");
   if (text === "quit\n" || text === "exit\n") {
     quit();
-  } else if (x[0] == "hello") {
-    helloo(x[1]);
+  } else if (text === "hello\n") {
+    hello();
   } else {
-    if (text === "help\n") {
-      help();
-    } else unknownCommand(text);
+    if (x[0] == "hello") {
+      helloo(x[1]);
+    } else {
+      if (text === "help\n") {
+        help();
+      } else unknownCommand(text);
+    }
   }
 }
-
 /**
  * help function
  * print choises of user
