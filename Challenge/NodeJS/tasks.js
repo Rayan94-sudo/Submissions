@@ -35,9 +35,9 @@ function startApp(name) {
  */
 
 var li = [
-  "to quit the app  type exit OR quit",
-  "to Says hello type hello",
-  "to Says hello xxx type hello xxx!"
+  ["to quit the app  type exit OR quit", true],
+  ["to Says hello type hello", false],
+  ["to Says hello xxx type hello xxx!", true]
 ];
 
 function onDataReceived(text) {
@@ -106,7 +106,11 @@ function helloo(y) {
 
 function list() {
   for (var i = 0; i < li.length; i++) {
-    console.log("[ ] " + li[i] + "\n");
+    if (li[i][1] == true) {
+      console.log("[✓]" + li[i][0] + "\n");
+    } else {
+      console.log("[ ]" + li[i][0] + "\n");
+    }
   }
   console.log("<><><><><><><><><><><><><><><><><><><><>");
 }
@@ -116,7 +120,7 @@ function add(task_) {
   var t = task_.toString();
   var t = t.replace(/\,/g, " ");
   var t = t.replace("\n", "");
-  li.push(t);
+  li.push([t, false]);
   console.log(">->-> this task is added !! \n");
   list();
 }
@@ -129,7 +133,7 @@ function edit(x) {
     var t = x.toString();
     var t = t.replace(/\,/g, " ");
     var t = t.replace("\n", "");
-    li[index] = t;
+    li[index][0] = t;
   } else {
     console.log("hjkads");
     var index = x.length;
@@ -137,7 +141,7 @@ function edit(x) {
     var t = x.toString();
     var t = t.replace(/\,/g, " ");
     var t = t.replace("\n", "");
-    li[index] = t;
+    li[index][0] = t;
   }
   console.log(" <<< list after edit >>>");
   list();
