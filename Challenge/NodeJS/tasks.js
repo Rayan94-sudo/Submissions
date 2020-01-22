@@ -37,9 +37,15 @@ function startApp(name) {
 let li = read_data();
 
 function read_data() {
-  "use strict";
-  let jsonData = require("./database.json");
-  return jsonData;
+  if (process.argv.length == 2) {
+    ("use strict");
+    let jsonData = require("./database.json");
+    return jsonData;
+  } else {
+    ("use strict");
+    let jsonData = require("./" + process.argv[2]);
+    return jsonData;
+  }
 }
 
 function onDataReceived(text) {
@@ -130,7 +136,7 @@ function add(task_) {
   var t = task_.toString();
   var t = t.replace(/\,/g, " ");
   var t = t.replace("\n", "");
-  li.push([t, false]);
+  li.push([t, 0]);
   console.log(">->-> this task is added !! \n");
   list();
 }
@@ -199,10 +205,15 @@ function remove(x) {
  */
 
 function quit() {
-  const fs = require("fs");
-  let data = JSON.stringify(li);
-  fs.writeFileSync("database.json", data);
-
+  if (process.argv.length == 2) {
+    const fs = require("fs");
+    let data = JSON.stringify(li);
+    fs.writeFileSync("database.json", data);
+  } else {
+    const fs = require("fs");
+    let data = JSON.stringify(li);
+    fs.writeFileSync(process.argv[2], data);
+  }
   console.log("Quitting now, goodbye!");
   process.exit();
 }
