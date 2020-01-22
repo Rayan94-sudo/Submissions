@@ -1,0 +1,6 @@
+[
+  ["to quit the app  type exit OR quit", 0],
+  ["to Says hello type hello", 0],
+  ["to Says hello xxx type hello xxx!", 0],
+  ["new task", false]
+]

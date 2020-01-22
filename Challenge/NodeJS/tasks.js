@@ -34,11 +34,13 @@ function startApp(name) {
  * @returns {void}
  */
 
-var li = [
-  ["to quit the app  type exit OR quit", true],
-  ["to Says hello type hello", false],
-  ["to Says hello xxx type hello xxx!", true]
-];
+let li = read_data();
+
+function read_data() {
+  "use strict";
+  let jsonData = require("./database.json");
+  return jsonData;
+}
 
 function onDataReceived(text) {
   var x = text.split(" ");
@@ -58,6 +60,14 @@ function onDataReceived(text) {
     unknownCommand(text);
   } else if (x[0] === "edit") {
     edit(x);
+  } else if (text === "check\n") {
+    unknownCommand(text);
+  } else if (x[0] === "check") {
+    check(x);
+  } else if (text === "uncheck\n") {
+    unknownCommand(text);
+  } else if (x[0] === "uncheck") {
+    uncheck(x);
   } else if (text === "hello\n") {
     hello();
   } else if (x[0] == "hello") {
@@ -106,7 +116,7 @@ function helloo(y) {
 
 function list() {
   for (var i = 0; i < li.length; i++) {
-    if (li[i][1] == true) {
+    if (li[i][1] == 1) {
       console.log("[✓]" + li[i][0] + "\n");
     } else {
       console.log("[ ]" + li[i][0] + "\n");
@@ -135,7 +145,6 @@ function edit(x) {
     var t = t.replace("\n", "");
     li[index][0] = t;
   } else {
-    console.log("hjkads");
     var index = x.length;
     x.shift();
     var t = x.toString();
@@ -144,6 +153,30 @@ function edit(x) {
     li[index][0] = t;
   }
   console.log(" <<< list after edit >>>");
+  list();
+}
+
+function uncheck(x) {
+  if (x[1] <= li.length && x[1] > 0) {
+    var index = x[1];
+    var i = parseInt(x[1] - 1);
+    li[i][1] = 0;
+  } else {
+    console.log("parametrs error");
+  }
+  console.log(`task ${x[1]}is marked as checked`);
+  list();
+}
+
+function check(x) {
+  if (x[1] <= li.length && x[1] > 0) {
+    var index = x[1];
+    var i = parseInt(x[1] - 1);
+    li[i][1] = 1;
+  } else {
+    console.log("parametrs error");
+  }
+  console.log(`task ${x[1]}is marked as checked`);
   list();
 }
 
@@ -164,7 +197,12 @@ function remove(x) {
  *
  * @returns {void}
  */
+
 function quit() {
+  const fs = require("fs");
+  let data = JSON.stringify(li);
+  fs.writeFileSync("database.json", data);
+
   console.log("Quitting now, goodbye!");
   process.exit();
 }
